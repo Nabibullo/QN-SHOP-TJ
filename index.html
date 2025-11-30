@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tj">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QN SHOP TJ — Онлайн Магазин</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Общие настройки ===== */
+*{box-sizing:border-box;}
+body,html{margin:0;padding:0;font-family:'Poppins',sans-serif;overflow-x:hidden;height:100%;background:#111; color:#fff; perspective:1200px;}
+a{text-decoration:none;}
+/* ===== Заголовок ===== */
+header{
+  text-align:center;padding:25px 10px;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);
+  position:relative;z-index:20;box-shadow:0 5px 15px rgba(0,0,0,0.5);}
+header h1{
+  font-size:3rem;font-weight:700;margin:0;color:#ffcc00;letter-spacing:1px;
+  animation:glow 2s infinite alternate;}
+@keyframes glow{
+  0%{text-shadow:0 0 5px #ffcc00;}
+  100%{text-shadow:0 0 30px #ffd54f;}
+}
+
+/* ===== Основной блок ===== */
+main{max-width:1200px;margin:auto;padding:20px;position:relative;z-index:10;}
+.hero{text-align:center;margin-bottom:30px;}
+.hero img{width:90%;max-width:500px;border-radius:25px;box-shadow:0 20px 50px rgba(0,0,0,0.7);animation:heroPop 1.5s ease forwards;}
+@keyframes heroPop{0%{opacity:0;transform:scale(0.8);}100%{opacity:1;transform:scale(1);}}
+.shop-info{text-align:center;font-size:1.3rem;line-height:1.6;margin-bottom:25px;}
+.shop-info span{display:block;margin-bottom:10px;}
+.btn-language{display:block;margin:20px auto;padding:12px 28px;font-size:1rem;font-weight:600;color:#fff;background-color:#ff6f00;border:none;border-radius:10px;cursor:pointer;transition:all 0.3s;}
+.btn-language:hover{background-color:#ffa000;transform:scale(1.05);}
+.btn-order{display:block;margin:15px auto 35px auto;padding:15px 35px;font-size:1.2rem;font-weight:700;color:#fff;background-color:#00c853;border:none;border-radius:12px;cursor:pointer;transition:all 0.3s;text-align:center;}
+.btn-order:hover{background-color:#00e676;transform:scale(1.05);}
+.contact-buttons{display:flex;justify-content:center;gap:20px;margin-top:25px;}
+.contact-buttons a{padding:12px 25px;border-radius:10px;font-weight:600;color:#fff;transition:all 0.3s;}
+.contact-buttons a:hover{transform:scale(1.05);opacity:0.9;}
+.whatsapp{background-color:#25D366;}
+.instagram{background-color:#E1306C;}
+footer{text-align:center;margin:50px 0 20px;font-size:0.9rem;color:#ccc;}
+
+/* ===== Частицы ===== */
+.particle{
+  position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);
+  animation:floatParticle linear infinite;pointer-events:none;}
+@keyframes floatParticle{
+  0%{transform:translateY(0) rotate(0deg);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-1200px) rotate(360deg);opacity:0;}
+}
+
+/* ===== Плавающие товары ===== */
+.floating-item{
+  position:absolute;width:120px;animation:float 10s ease-in-out infinite;z-index:1;opacity:0.9;
+  transform-origin:center center;}
+.floating-item:nth-child(1){top:50%;left:10%;animation-delay:0s;}
+.floating-item:nth-child(2){top:20%;right:10%;animation-delay:2s;}
+.floating-item:nth-child(3){bottom:20%;left:20%;animation-delay:4s;}
+.floating-item:nth-child(4){bottom:40%;right:25%;animation-delay:6s;}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-50px) rotate(15deg);}
+}
+
+/* ===== Эффект параллакса по мыши ===== */
+body:hover .floating-item{transition:transform 0.3s ease;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>QN SHOP TJ 🛍️</h1>
+</header>
+
+<!-- Живые частицы -->
+<script>
+const body=document.body;
+for(let i=0;i<80;i++){
+  const particle=document.createElement('div');
+  particle.classList.add('particle');
+  const size=Math.random()*8+4;
+  particle.style.width=size+'px';
+  particle.style.height=size+'px';
+  particle.style.left=Math.random()*100+'%';
+  particle.style.top=Math.random()*100+'%';
+  particle.style.animationDuration=(5+Math.random()*10)+'s';
+  body.appendChild(particle);
+}
+</script>
+
+<!-- Плавающие товары -->
+<img src="https://img.icons8.com/color/96/headphones.png" class="floating-item" alt="Наушники">
+<img src="https://img.icons8.com/color/96/smartwatch.png" class="floating-item" alt="Смартчасы">
+<img src="https://img.icons8.com/color/96/power-bank.png" class="floating-item" alt="Повербанки">
+<img src="https://img.icons8.com/color/96/sneakers.png" class="floating-item" alt="Кроссовки">
+
+<main>
+  <div class="hero">
+    <img src="https://img.freepik.com/premium-photo/modern-electronic-accessories-smartwatch-headphones-sneakers-arranged-fashionable-flatlay-yellow-background_76503-379.jpg" alt="QN SHOP TJ">
+  </div>
+
+  <div class="shop-info" id="shop-text">
+    <span>QN SHOP TJ – ҷаҳоне аз аксессуарҳо ва техникаи электронӣ! ⌚🎧💻👟</span>
+    <span>Смартчасы • Беспроводной наушник • Повербанки • Кроссовкаҳо</span>
+    <span>Фармоишҳо дар 15–25 рӯз ба Душанбе ва Панҷакент 🚛📦</span>
+    <span>Ҳар чизе, ки мехоҳӣ – як ҷо! 🛍️</span>
+  </div>
+
+  <a href="https://wa.me/992908802800" class="btn-order" target="_blank">Заказать сейчас 🚀</a>
+  <button class="btn-language" id="lang-btn">RU</button>
+
+  <div class="contact-buttons">
+    <a href="https://wa.me/992908802800" class="whatsapp" target="_blank">WhatsApp 📱</a>
+    <a href="https://www.instagram.com/qn_shop_tj?igsh=MTVwZ3M3Z2R3ZG5jZQ==" class="instagram" target="_blank">Instagram 📸</a>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 QN SHOP TJ. Все права защищены.
+</footer>
+
+<script>
+const btn=document.getElementById('lang-btn');
+const text=document.getElementById('shop-text');
+let isTJ=true;
+btn.addEventListener('click',()=>{
+  if(isTJ){
+    text.innerHTML=`<span>QN SHOP TJ – мир аксессуаров и электроники! ⌚🎧💻👟</span>
+<span>Смарт-часы • Беспроводные наушники • Повербанки • Кроссовки</span>
+<span>Доставка в Душанбе и Пенджикент за 15–25 дней 🚛📦</span>
+<span>Всё, что хочешь – в одном месте! 🛍️</span>`;
+    btn.textContent='TJ';
+    isTJ=false;
+  }else{
+    text.innerHTML=`<span>QN SHOP TJ – ҷаҳоне аз аксессуарҳо ва техникаи электронӣ! ⌚🎧💻👟</span>
+<span>Смартчасы • Беспроводной наушник • Повербанки • Кроссовкаҳо</span>
+<span>Фармоишҳо дар 15–25 рӯз ба Душанбе ва Панҷакент 🚛📦</span>
+<span>Ҳар чизе, ки мехоҳӣ – як ҷо! 🛍️</span>`;
+    btn.textContent='RU';
+    isTJ=true;
+  }
+});
+
+// ===== Параллакс по мыши =====
+document.addEventListener('mousemove',e=>{
+  const items=document.querySelectorAll('.floating-item');
+  const x=e.clientX/window.innerWidth-0.5;
+  const y=e.clientY/window.innerHeight-0.5;
+  items.forEach((item,i)=>{
+    const factor=(i+1)*15;
+    item.style.transform=`translate(${x*factor}px,${y*factor}px)`;
+  });
+});
+</script>
+
+</body>
+</html>
